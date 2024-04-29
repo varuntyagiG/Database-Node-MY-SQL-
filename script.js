@@ -32,7 +32,7 @@ const connection = mysql.createConnection({
   });
   
   app.get("/home",(req,res)=>{
-    let q = "select count(*) from origin";
+    let q = "select count(*) from origin"; // jo vo count aa ye gha na vo ek array hogha...
     connection.query(q,(err,resu)=>{       // total number of user.
       let data = resu[0]["count(*)"];    // 104
       console.log(resu[0]["count(*)"]); 
@@ -54,8 +54,8 @@ app.get("/user/:id/edit",(req,res)=>{
   let {id} = req.params;
   let q = `select * from origin where id = '${id}'`;
   connection.query(q,(err,resu)=>{
-   console.log(resu[0]);
-   let user = resu[0];
+   console.log(resu[0]);      // jo user ki information aaye ghe na vo bhi ekk array hi hoghe.
+   let user = resu[0]; 
    res.render("edit.ejs",{user});
   })
 });
