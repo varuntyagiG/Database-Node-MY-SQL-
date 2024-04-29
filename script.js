@@ -44,7 +44,7 @@ const connection = mysql.createConnection({
     let q = "select * from origin";
     connection.query(q,(err,resu)=>{
       let data = resu;
-      console.log(data);
+      console.log(data);       // resu is the result of the query..
       res.render("user.ejs",{data});
     })
   });
